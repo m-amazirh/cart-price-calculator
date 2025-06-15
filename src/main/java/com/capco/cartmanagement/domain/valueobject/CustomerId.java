@@ -1,6 +1,9 @@
 package com.capco.cartmanagement.domain.valueobject;
 
+import lombok.NonNull;
 import lombok.Value;
+
+import java.util.UUID;
 
 /**
  * Value object representing a customer identifier.
@@ -10,7 +13,16 @@ import lombok.Value;
  * </p>
  * @see Id
  */
-@Value
+
 public class CustomerId extends Id {
 
+    /**
+     * Constructs a new identifier with the specified UUID value.
+     *
+     * @param value The UUID value for this identifier
+     * @throws NullPointerException if value is null
+     */
+    public CustomerId(@NonNull UUID value) {
+        super(value);
+    }
 }

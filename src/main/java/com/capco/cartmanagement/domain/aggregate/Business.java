@@ -28,10 +28,6 @@ public class Business extends Customer{
             throw new InvalidCompanyName();
         }
 
-        if(!isAnnualTurnoverValid(annualTurnover)){
-            throw new InvalidAnnualTurnover();
-        }
-
         this.companyName = companyName;
         this.sirenNumber = sirenNumber;
         this.vatNumber = vatNumber;
@@ -54,13 +50,5 @@ public class Business extends Customer{
 
     private boolean isCompanyNameValid(@NonNull String input){
         return !input.isBlank();
-    }
-
-    private boolean isAnnualTurnoverValid(@NonNull MonetaryAmount inputAnnualTurnover){
-        NumberValue zeroValue = new DefaultNumberValue(Integer.valueOf(0));
-        boolean isPositiveAmount = inputAnnualTurnover.getNumber().compareTo(zeroValue)<0;
-        boolean isUsingSystemCurrency = SYSTEM_CURRENCY_CODE.equals(inputAnnualTurnover.getCurrency().getCurrencyCode().toUpperCase());
-
-        return isPositiveAmount && isUsingSystemCurrency;
     }
 }
