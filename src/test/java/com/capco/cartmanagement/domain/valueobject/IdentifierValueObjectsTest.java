@@ -1,8 +1,8 @@
 package com.capco.cartmanagement.domain.valueobject;
 
-import com.capco.modules.customermanagement.valueobject.CustomerId;
-import com.capco.shared.Id;
-import com.capco.modules.productmanagement.valueobject.ProductId;
+import com.capco.sharedkernel.CustomerId;
+import com.capco.sharedkernel.Id;
+import com.capco.sharedkernel.ProductId;
 import org.junit.jupiter.api.Test;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;

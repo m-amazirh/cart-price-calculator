@@ -1,9 +1,8 @@
 package com.capco.cartmanagement.domain.valueobject;
 
-import com.capco.shared.InvalidMoneyAmount;
-import com.capco.modules.customermanagement.valueobject.AnnualTurnover;
-import com.capco.modules.productmanagement.valueobject.BasePrice;
-import com.capco.shared.MoneyAmount;
+import com.capco.sharedkernel.InvalidMoneyAmount;
+import com.capco.modules.customermanagement.domain.valueobject.AnnualTurnover;
+import com.capco.sharedkernel.MoneyAmount;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.Currency;
