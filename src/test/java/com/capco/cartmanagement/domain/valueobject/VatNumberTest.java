@@ -1,6 +1,8 @@
 package com.capco.cartmanagement.domain.valueobject;
 
-import com.capco.cartmanagement.domain.exception.InvalidVatNumber;
+import com.capco.modules.customermanagement.exception.InvalidVatNumber;
+import com.capco.modules.customermanagement.valueobject.VatCountryCode;
+import com.capco.modules.customermanagement.valueobject.VatNumber;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

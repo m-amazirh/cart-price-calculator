@@ -1,6 +1,7 @@
 package com.capco.cartmanagement.domain.valueobject;
 
-import com.capco.cartmanagement.domain.exception.InvalidSirenNumber;
+import com.capco.modules.customermanagement.exception.InvalidSirenNumber;
+import com.capco.modules.customermanagement.valueobject.SirenNumber;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
