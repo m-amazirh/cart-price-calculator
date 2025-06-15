@@ -10,7 +10,7 @@ class IdentifierValueObjectsTest {
     void givenValidUuid_whenCreatingId_thenInstanceIsCreated() {
         UUID uuid = UUID.randomUUID();
         Id id = new Id(uuid);
-        assertEquals(uuid, id.value);
+        assertEquals(uuid, id.getValue());
     }
 
     @Test
@@ -22,7 +22,7 @@ class IdentifierValueObjectsTest {
     void givenValidUuid_whenCreatingProductId_thenInstanceIsCreated() {
         UUID uuid = UUID.randomUUID();
         ProductId productId = new ProductId(uuid);
-        assertEquals(uuid, productId.value);
+        assertEquals(uuid, productId.getValue());
     }
 
     @Test
@@ -34,7 +34,7 @@ class IdentifierValueObjectsTest {
     void givenValidUuid_whenCreatingCustomerId_thenInstanceIsCreated() {
         UUID uuid = UUID.randomUUID();
         CustomerId customerId = new CustomerId(uuid);
-        assertEquals(uuid, customerId.value);
+        assertEquals(uuid, customerId.getValue());
     }
 
     @Test

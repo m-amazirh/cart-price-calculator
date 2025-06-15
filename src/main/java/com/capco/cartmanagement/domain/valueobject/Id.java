@@ -1,5 +1,6 @@
 package com.capco.cartmanagement.domain.valueobject;
 
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.Value;
 
@@ -14,6 +15,7 @@ public class Id {
      * The underlying UUID value of this identifier.
      * @see UUID
      */
+    @Getter
     protected final UUID value;
 
     /**
