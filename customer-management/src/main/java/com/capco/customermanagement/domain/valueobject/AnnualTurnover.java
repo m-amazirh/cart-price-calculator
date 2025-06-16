@@ -1,7 +1,7 @@
 package com.capco.customermanagement.domain.valueobject;
 
-import com.capco.shared.InvalidMoneyAmount;
-import com.capco.shared.MoneyAmount;
+import com.capco.shared.domain.exception.InvalidMoneyAmount;
+import com.capco.shared.domain.valueobject.MoneyAmount;
 import lombok.NonNull;
 import lombok.Value;
 

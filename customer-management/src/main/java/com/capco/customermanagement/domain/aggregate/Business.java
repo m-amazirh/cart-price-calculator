@@ -1,14 +1,14 @@
 package com.capco.customermanagement.domain.aggregate;
 
 import com.capco.customermanagement.domain.exception.InvalidCompanyName;
+import com.capco.customermanagement.domain.valueobject.AnnualTurnover;
 import com.capco.shared.CustomerCategory;
-import com.capco.shared.CustomerId;
+import com.capco.shared.domain.valueobject.CustomerId;
 import com.capco.customermanagement.domain.valueobject.SirenNumber;
 import com.capco.customermanagement.domain.valueobject.VatNumber;
-import com.capco.shared.NotImplementedError;
+import com.capco.shared.domain.exception.NotImplementedError;
 import lombok.NonNull;
 
-import javax.money.MonetaryAmount;
 import java.util.Optional;
 
 public class Business extends Customer{
@@ -16,9 +16,9 @@ public class Business extends Customer{
     private final String companyName;
     private final SirenNumber sirenNumber;
     private final Optional<VatNumber> vatNumber;
-    private final MonetaryAmount annualTurnover;
+    private final AnnualTurnover annualTurnover;
 
-    protected Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull SirenNumber sirenNumber, @NonNull MonetaryAmount annualTurnover, @NonNull Optional<VatNumber> vatNumber) {
+    protected Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull SirenNumber sirenNumber, @NonNull AnnualTurnover annualTurnover, @NonNull Optional<VatNumber> vatNumber) {
         super(customerId);
 
         if(!isCompanyNameValid(companyName)){
@@ -32,11 +32,11 @@ public class Business extends Customer{
 
     }
 
-    public Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull SirenNumber sirenNumber, @NonNull MonetaryAmount annualTurnover, @NonNull VatNumber vatNumber) {
+    public Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull SirenNumber sirenNumber, @NonNull AnnualTurnover annualTurnover, @NonNull VatNumber vatNumber) {
         this(customerId, companyName, sirenNumber, annualTurnover, Optional.of(vatNumber));
     }
 
-    public Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull MonetaryAmount annualTurnover, @NonNull SirenNumber sirenNumber) {
+    public Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull AnnualTurnover annualTurnover, @NonNull SirenNumber sirenNumber) {
         this(customerId, companyName, sirenNumber, annualTurnover, Optional.empty());
     }
 

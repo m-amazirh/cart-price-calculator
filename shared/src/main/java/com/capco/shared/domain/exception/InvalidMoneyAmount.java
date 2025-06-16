@@ -1,4 +1,4 @@
-package com.capco.shared;
+package com.capco.shared.domain.exception;
 
 public class InvalidMoneyAmount extends DomainValidationException {
     public InvalidMoneyAmount() {

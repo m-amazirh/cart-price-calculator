@@ -1,5 +1,8 @@
 package com.capco.shared;
 
+import com.capco.shared.domain.exception.InvalidMoneyAmount;
+import com.capco.shared.domain.valueobject.MoneyAmount;
+import com.capco.shared.domain.valueobject.Price;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -19,7 +22,7 @@ class MoneyValueObjectsTest {
 
     @Test
     void givenNonEurCurrency_whenCreatingMoneyAmount_thenThrowsInvalidMoneyAmount() {
-        assertThrows(InvalidMoneyAmount.class, 
+        assertThrows(InvalidMoneyAmount.class,
             () -> new MoneyAmount(new BigDecimal("100.50"), Currency.getInstance("USD")));
     }
 

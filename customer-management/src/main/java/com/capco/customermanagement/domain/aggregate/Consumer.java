@@ -2,8 +2,8 @@ package com.capco.customermanagement.domain.aggregate;
 
 import com.capco.customermanagement.domain.valueobject.ConsumerName;
 import com.capco.shared.CustomerCategory;
-import com.capco.shared.CustomerId;
-import com.capco.shared.NotImplementedError;
+import com.capco.shared.domain.valueobject.CustomerId;
+import com.capco.shared.domain.exception.NotImplementedError;
 
 public class Consumer extends Customer{
     private final ConsumerName name;

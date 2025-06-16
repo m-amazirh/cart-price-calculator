@@ -1,4 +1,4 @@
-package com.capco.shared;
+package com.capco.shared.domain.valueobject;
 import lombok.NonNull;
 
 import java.util.UUID;
@@ -13,5 +13,9 @@ public class ProductId extends Id {
      */
     public ProductId(@NonNull UUID value) {
         super(value);
+    }
+
+    public static ProductId fromString(@NonNull String value){
+        return new ProductId(UUID.fromString(value));
     }
 }

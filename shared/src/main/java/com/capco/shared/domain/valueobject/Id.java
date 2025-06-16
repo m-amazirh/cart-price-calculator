@@ -1,4 +1,4 @@
-package com.capco.shared;
+package com.capco.shared.domain.valueobject;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -24,5 +24,9 @@ public class Id {
      */
     public Id(@NonNull UUID value){
         this.value = value;
+    }
+
+    public static Id fromString(@NonNull String value){
+        return new Id(UUID.fromString(value));
     }
 }

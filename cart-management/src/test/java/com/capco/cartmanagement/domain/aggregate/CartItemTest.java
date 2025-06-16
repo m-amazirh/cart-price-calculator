@@ -1,8 +1,8 @@
 package com.capco.cartmanagement.domain.aggregate;
 import com.capco.cartmanagement.domain.exception.InvalidCartItemQuantity;
-import com.capco.shared.Price;
-import com.capco.shared.ProductId;
-import com.capco.shared.MoneyAmount;
+import com.capco.shared.domain.valueobject.Price;
+import com.capco.shared.domain.valueobject.ProductId;
+import com.capco.shared.domain.valueobject.MoneyAmount;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

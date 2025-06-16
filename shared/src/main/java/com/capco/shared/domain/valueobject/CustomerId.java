@@ -1,4 +1,4 @@
-package com.capco.shared;
+package com.capco.shared.domain.valueobject;
 
 import lombok.NonNull;
 
@@ -23,5 +23,9 @@ public class CustomerId extends Id {
      */
     public CustomerId(@NonNull UUID value) {
         super(value);
+    }
+
+    public static CustomerId fromString(@NonNull String value){
+        return new CustomerId(UUID.fromString(value));
     }
 }

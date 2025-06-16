@@ -1,5 +1,6 @@
-package com.capco.shared;
+package com.capco.shared.domain.valueobject;
 
+import com.capco.shared.domain.exception.InvalidMoneyAmount;
 import lombok.Getter;
 import lombok.NonNull;
 

@@ -1,6 +1,6 @@
 package com.capco.cartmanagement.domain.exception;
 
-import com.capco.shared.DomainValidationException;
+import com.capco.shared.domain.exception.DomainValidationException;
 
 public class InvalidCartItemQuantity extends DomainValidationException {
     public InvalidCartItemQuantity() {

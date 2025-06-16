@@ -2,9 +2,11 @@ package com.capco.productmanagement.domain.aggregate;
 
 import com.capco.productmanagement.domain.exception.InvalidProductName;
 import com.capco.productmanagement.domain.valueobject.Pricing;
-import com.capco.shared.ProductId;
+import com.capco.shared.domain.valueobject.ProductId;
 import lombok.NonNull;
+import lombok.Value;
 
+@Value
 public class Product {
     private final ProductId productId;
     private final String name;

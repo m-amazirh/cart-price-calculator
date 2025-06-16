@@ -1,6 +1,6 @@
 package com.capco.customermanagement.domain.valueobject;
 
-import com.capco.shared.InvalidMoneyAmount;
+import com.capco.shared.domain.exception.InvalidMoneyAmount;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

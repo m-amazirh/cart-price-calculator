@@ -7,10 +7,10 @@ package com.capco.cartmanagement.domain.aggregate;
 import com.capco.cartmanagement.domain.exception.CartItemNotFound;
 import com.capco.cartmanagement.domain.exception.InvalidCartItemQuantity;
 import com.capco.cartmanagement.domain.valueobject.CartId;
-import com.capco.shared.CustomerId;
-import com.capco.shared.MoneyAmount;
-import com.capco.shared.Price;
-import com.capco.shared.ProductId;
+import com.capco.shared.domain.valueobject.CustomerId;
+import com.capco.shared.domain.valueobject.MoneyAmount;
+import com.capco.shared.domain.valueobject.Price;
+import com.capco.shared.domain.valueobject.ProductId;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -23,6 +23,7 @@ public class Cart {
     private final CartId cartId;
     @Getter
     private final CustomerId customerId;
+    @Getter
     private final Map<ProductId, CartItem> cartItems = new HashMap<>();
 
     /**

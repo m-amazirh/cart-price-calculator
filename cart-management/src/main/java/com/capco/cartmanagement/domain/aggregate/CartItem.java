@@ -4,8 +4,8 @@ package com.capco.cartmanagement.domain.aggregate;
  * Represents an item in a shopping cart with product details and quantity.
  */
 import com.capco.cartmanagement.domain.exception.InvalidCartItemQuantity;
-import com.capco.shared.Price;
-import com.capco.shared.ProductId;
+import com.capco.shared.domain.valueobject.Price;
+import com.capco.shared.domain.valueobject.ProductId;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

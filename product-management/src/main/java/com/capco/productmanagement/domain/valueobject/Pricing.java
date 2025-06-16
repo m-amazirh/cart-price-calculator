@@ -2,7 +2,7 @@ package com.capco.productmanagement.domain.valueobject;
 
 import com.capco.productmanagement.domain.exception.PriceNotConfiguredError;
 import com.capco.shared.CustomerCategory;
-import com.capco.shared.Price;
+import com.capco.shared.domain.valueobject.Price;
 import lombok.NonNull;
 
 import java.util.HashMap;
