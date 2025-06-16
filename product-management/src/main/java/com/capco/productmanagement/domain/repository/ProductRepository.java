@@ -5,4 +5,5 @@ import com.capco.shared.domain.valueobject.ProductId;
 
 public interface ProductRepository {
     Product getProductById(ProductId id);
+    Product save(Product product);
 }

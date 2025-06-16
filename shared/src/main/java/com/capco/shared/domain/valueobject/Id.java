@@ -1,5 +1,6 @@
 package com.capco.shared.domain.valueobject;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -9,6 +10,7 @@ import java.util.UUID;
  * Base class for identifier value objects in the domain.
  * Provides a common implementation using UUID as the underlying value.
  */
+@EqualsAndHashCode
 public class Id {
     /**
      * The underlying UUID value of this identifier.

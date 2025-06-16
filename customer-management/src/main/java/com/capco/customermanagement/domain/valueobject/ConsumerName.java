@@ -17,6 +17,10 @@ public class ConsumerName {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    public String getFullname(){
+        return String.format("%s %s", firstName, lastName);
+    }
     private boolean isValid(@NonNull String inputFirstName, @NonNull String inputLastName){
         return !inputFirstName.isBlank() && !inputLastName.isBlank();
     }

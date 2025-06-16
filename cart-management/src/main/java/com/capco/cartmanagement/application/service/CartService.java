@@ -15,6 +15,7 @@ import com.capco.shared.domain.valueobject.Price;
 import com.capco.shared.domain.valueobject.ProductId;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@Service
 public class CartService {
     @NonNull
     private final ProductService productService;
@@ -32,10 +34,10 @@ public class CartService {
     @NonNull
     private final AppMapper appMapper;
 
-    public String createCart(String id){
-        CustomerId customerId = CustomerId.fromString(id);
+    public String createCart(String customerId){
+        CustomerId custId = CustomerId.fromString(customerId);
         CartId cartId = new CartId(UUID.randomUUID());
-        Cart cart = new Cart(cartId, customerId);
+        Cart cart = new Cart(cartId, custId);
 
         cartRepository.save(cart);
 
@@ -65,7 +67,7 @@ public class CartService {
     public void addItem(String cartId, String productId, Integer quantity){
         Cart cart = cartRepository.getCartById(CartId.fromString(cartId));
         ProductDto productDto = productService.getProduct(productId);
-        String customerCategory = customerService.getCustomerCategory(cart.getCustomerId().toString());
+        String customerCategory = customerService.getCustomerCategory(cart.getCustomerId().getValue().toString());
 
         BigDecimal priceAmount = BigDecimal.valueOf(productDto.getPricing().get(customerCategory));
         Price price = new Price(priceAmount, MoneyAmount.SYSTEM_CURRENCY);

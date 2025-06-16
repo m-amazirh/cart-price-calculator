@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CartSummaryDto {
     private String cartId;
+    private String customerId;
     private Double totalPrice;
     private List<CartItemDto> items;
 }

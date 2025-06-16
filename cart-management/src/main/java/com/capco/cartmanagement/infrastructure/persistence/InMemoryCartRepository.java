@@ -5,10 +5,12 @@ import com.capco.cartmanagement.domain.repository.CartRepository;
 import com.capco.cartmanagement.domain.valueobject.CartId;
 import com.capco.shared.domain.valueobject.ProductId;
 import lombok.NonNull;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class InMemoryCartRepository implements CartRepository {
     private final Map<CartId, Cart> repository = new HashMap<>();
     @Override

@@ -27,6 +27,9 @@ public class AppMapper {
                 .map(item -> toCartItemDto(item, productNames.get(item.getProductId().getValue().toString()), totalPricePerItem.get(item.getProductId().getValue().toString())))
                 .collect(Collectors.toList());
 
-        return new CartSummaryDto(cart.getCartId().getValue().toString(), cart.calculateTotalPrice().getAmount().doubleValue(), itemDtos);
+        return new CartSummaryDto(cart.getCartId().getValue().toString(),
+                cart.getCustomerId().getValue().toString(),
+                cart.calculateTotalPrice().getAmount().doubleValue(),
+                itemDtos);
     }
 }

@@ -1,4 +1,5 @@
 package com.capco.shared.domain.valueobject;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 
 import java.util.UUID;
