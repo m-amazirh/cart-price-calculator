@@ -3,6 +3,7 @@ package com.capco.cartmanagement.domain.valueobject;
 import com.capco.sharedkernel.InvalidMoneyAmount;
 import com.capco.modules.customermanagement.domain.valueobject.AnnualTurnover;
 import com.capco.sharedkernel.MoneyAmount;
+import com.capco.sharedkernel.Price;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -24,16 +25,16 @@ class MoneyValueObjectsTest {
     }
 
     @Test
-    void givenValidEurAmount_whenCreatingBasePrice_thenInstanceIsCreated() {
-        BasePrice price = new BasePrice(new BigDecimal("50.75"), Currency.getInstance("EUR"));
+    void givenValidEurAmount_whenCreatingPrice_thenInstanceIsCreated() {
+        Price price = new Price(new BigDecimal("50.75"), Currency.getInstance("EUR"));
         assertEquals("EUR", price.getCurrency().getCurrencyCode());
         assertEquals(new BigDecimal("50.75"), price.getAmount());
     }
 
     @Test
-    void givenNonEurCurrency_whenCreatingBasePrice_thenThrowsInvalidMoneyAmount() {
+    void givenNonEurCurrency_whenCreatingPrice_thenThrowsInvalidMoneyAmount() {
         assertThrows(InvalidMoneyAmount.class,
-            () -> new BasePrice(new BigDecimal("50.75"), Currency.getInstance("GBP")));
+            () -> new Price(new BigDecimal("50.75"), Currency.getInstance("GBP")));
     }
 
     @Test

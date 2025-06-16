@@ -36,6 +36,6 @@ public class Price extends MoneyAmount{
 
     private boolean isAmountValid(@NonNull BigDecimal inputAmount){
         BigDecimal zeroValue = new BigDecimal(0);
-        return inputAmount.compareTo(zeroValue)>0;
+        return inputAmount.compareTo(zeroValue)>=0;
     }
 }
