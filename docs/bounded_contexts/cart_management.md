@@ -27,7 +27,7 @@ A business has
 A product has
  - an id
  - a name
- - a pricing matrix (Consumer Category, Price)
+ - a pricing matrix (Consumer Category, com.capco.shared.Price)
 
 
 
