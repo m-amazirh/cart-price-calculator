@@ -8,6 +8,8 @@ import com.capco.shared.CustomerCategory;
 import com.capco.shared.domain.valueobject.BigBusinessCategory;
 import com.capco.shared.domain.valueobject.CustomerId;
 import com.capco.shared.domain.valueobject.SmallBusinessCategory;
+
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Value;
 
@@ -15,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 @Value
+@EqualsAndHashCode(callSuper = true)
 /**
  * Represents a business customer entity in the system.
  * <p>

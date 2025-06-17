@@ -2,6 +2,7 @@ package com.capco.customermanagement.domain.valueobject;
 
 import com.capco.shared.domain.exception.InvalidMoneyAmount;
 import com.capco.shared.domain.valueobject.MoneyAmount;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.Value;
 
@@ -13,6 +14,7 @@ import java.util.Currency;
  * Extends MoneyAmount and adds validation for negative amounts.
  */
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class AnnualTurnover extends MoneyAmount {
     /**
      * Creates a new AnnualTurnover

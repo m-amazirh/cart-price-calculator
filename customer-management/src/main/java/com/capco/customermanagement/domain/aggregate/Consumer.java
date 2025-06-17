@@ -4,15 +4,18 @@ import com.capco.customermanagement.domain.valueobject.ConsumerName;
 import com.capco.shared.CustomerCategory;
 import com.capco.shared.domain.valueobject.ConsumerCategory;
 import com.capco.shared.domain.valueobject.CustomerId;
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 
-@Value
+
 /**
  * Represents an individual consumer customer in the system.
  * <p>
  * A consumer has a name and always belongs to the Consumer category.
  * </p>
  */
+@Value
+@EqualsAndHashCode(callSuper = true)
 public class Consumer extends Customer{
     /**
      * The consumer's name information.
