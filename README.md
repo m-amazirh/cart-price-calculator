@@ -99,7 +99,7 @@ classDiagram
 
 ## Testing Strategy
 
-The testing strategy prioritizes the core domain logic, ensuring its correctness and robustness. Consequently, tests are concentrated on modules like `cart-management` and `customer-management`, where complex calculations and domain rules are implemented. The application layers, which primarily handle orchestration and data transfer, have minimal or omitted tests, as the focus was placed on validating the domain logic.
+The testing strategy primarily focuses on validating the core domain logic, ensuring its correctness and robustness. This is reflected in the concentration of tests within modules like `cart-management` and `customer-management`, which encapsulate complex calculations and critical business rules. Notably, the `cart-management` module includes integration tests to verify the seamless interaction between its components and other modules. Conversely, the application layers, which are more concerned with orchestration and data transfer, have minimal or omitted tests, aligning with the emphasis on thorough domain validation.
 
 ## Technologies Used
 
