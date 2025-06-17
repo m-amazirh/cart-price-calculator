@@ -170,3 +170,6 @@ Once the application is running, you can use the following commands:
     cart summary --cartId <cart-id>
     ```
     *Example*: `cart summary --cartId CART001`
+
+## Disclosure
+All of the project documentation and portions of the boilerplate and test code were generated with the assistance of AI tools.
