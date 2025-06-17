@@ -24,7 +24,7 @@ graph TD
     This module contains common utilities, value objects (e.g., `Money`, `Identifier`), and exceptions that are shared across other modules. It defines the `CustomerCategory` interface, which is crucial for categorizing customers.
 
 *   **`product-management`**:
-    Responsible for managing product data and defining the pricing logic. It handles the different price points for high-end phones, mid-range phones, and laptops, considering various customer categories.
+    Responsible for managing product data and defining the pricing logic. It handles the different price points for high-end phones, mid-range phones, and laptops, considering various customer categories. The design intentionally omits a product type attribute, instead relying on the pricing configuration to implicitly define product categories through their price points.
 
 *   **`customer-management`**:
     Manages customer data, distinguishing between `Consumer` (individual) and `Business` clients. It encapsulates the specific attributes and behaviors of each customer type, including annual turnover for business clients, which influences pricing.
