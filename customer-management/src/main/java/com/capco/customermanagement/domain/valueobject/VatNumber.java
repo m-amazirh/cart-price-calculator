@@ -35,12 +35,12 @@ public class VatNumber {
     /**
      * The country code associated with the VAT number.
      */
-    @NonNull
+
     private final VatCountryCode countryCode;
     /**
      * The national identifier part of the VAT number.
      */
-    @NonNull
+
     private final String nationalIdentifier;
 
     /**
@@ -50,7 +50,7 @@ public class VatNumber {
      * @param nationalIdentifier The national identifier part of the VAT number.
      * @throws InvalidVatNumber If the national identifier is invalid.
      */
-    public VatNumber(VatCountryCode countryCode, String nationalIdentifier){
+    public VatNumber(@NonNull VatCountryCode countryCode, @NonNull String nationalIdentifier){
         if(!isNatonalIdentifierValid(nationalIdentifier)){
             throw new InvalidVatNumber();
         }

@@ -5,12 +5,15 @@ import com.capco.productmanagement.application.mapper.AppMapper;
 import com.capco.productmanagement.domain.aggregate.Product;
 import com.capco.productmanagement.domain.repository.ProductRepository;
 import com.capco.productmanagement.domain.valueobject.Pricing;
+import com.capco.shared.application.exception.ProductNotFound;
 import com.capco.shared.domain.valueobject.*;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -22,7 +25,8 @@ public class ProductService {
     private final AppMapper appMapper;
 
     public ProductDto getProduct(String productId){
-        Product product = productRepository.getProductById(ProductId.fromString(productId));
+        Product product = Optional.ofNullable(productRepository.getProductById(ProductId.fromString(productId)))
+                .orElseThrow(() -> new ProductNotFound());
 
         return appMapper.toDto(product);
     }
@@ -39,5 +43,9 @@ public class ProductService {
         productRepository.save(product);
 
         return appMapper.toDto(product);
+    }
+
+    public List<ProductDto> getAllProducts() {
+        return productRepository.getAllProducts().stream().map(appMapper::toDto).toList();
     }
 }

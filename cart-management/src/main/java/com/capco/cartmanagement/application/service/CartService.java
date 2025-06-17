@@ -9,6 +9,8 @@ import com.capco.cartmanagement.domain.valueobject.CartId;
 import com.capco.customermanagement.application.service.CustomerService;
 import com.capco.productmanagement.application.dto.ProductDto;
 import com.capco.productmanagement.application.service.ProductService;
+import com.capco.shared.application.exception.CartNotFound;
+import com.capco.shared.application.exception.ProductNotFound;
 import com.capco.shared.domain.valueobject.CustomerId;
 import com.capco.shared.domain.valueobject.MoneyAmount;
 import com.capco.shared.domain.valueobject.Price;
@@ -18,9 +20,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -45,7 +45,8 @@ public class CartService {
     }
 
     public CartSummaryDto getCart(String cartId){
-        Cart cart = cartRepository.getCartById(CartId.fromString(cartId));
+        Cart cart = Optional.ofNullable(cartRepository.getCartById(CartId.fromString(cartId)))
+                .orElseThrow(() -> new CartNotFound());
 
         Map<String, String> productNames = new HashMap<>();
         Map<String, Double> totalPricePerItem = new HashMap<>();
@@ -65,8 +66,9 @@ public class CartService {
     }
 
     public void addItem(String cartId, String productId, Integer quantity){
-        Cart cart = cartRepository.getCartById(CartId.fromString(cartId));
-        ProductDto productDto = productService.getProduct(productId);
+        Cart cart = Optional.ofNullable(cartRepository.getCartById(CartId.fromString(cartId)))
+                .orElseThrow(() -> new CartNotFound());
+        ProductDto productDto = Optional.ofNullable(productService.getProduct(productId)).orElseThrow(() -> new ProductNotFound());
         String customerCategory = customerService.getCustomerCategory(cart.getCustomerId().getValue().toString());
 
         BigDecimal priceAmount = BigDecimal.valueOf(productDto.getPricing().get(customerCategory));
@@ -88,5 +90,12 @@ public class CartService {
         Cart cart = cartRepository.getCartById(CartId.fromString(cartId));
         cart.updateItemQuantity(ProductId.fromString(productId), quantity);
         cartRepository.save(cart);
+    }
+
+    public List<CartSummaryDto> getAllCarts() {
+        return cartRepository.getAllCarts().stream()
+                .map(cart -> cart.getCartId().getValue().toString())
+                .map(this::getCart)
+                .toList();
     }
 }

@@ -9,6 +9,7 @@ import com.capco.customermanagement.domain.repository.CustomerRepository;
 import com.capco.customermanagement.domain.valueobject.AnnualTurnover;
 import com.capco.customermanagement.domain.valueobject.ConsumerName;
 import com.capco.customermanagement.domain.valueobject.SirenNumber;
+import com.capco.shared.application.exception.CustomerNotFound;
 import com.capco.shared.domain.valueobject.CustomerId;
 import com.capco.shared.domain.valueobject.MoneyAmount;
 import lombok.NonNull;
@@ -16,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -28,13 +31,16 @@ public class CustomerService {
 
     public CustomerDto getCustomer(String customerId){
         CustomerId id = CustomerId.fromString(customerId);
-        Customer customer = customerRepository.getCustomerById(id);
+        Customer customer = Optional.ofNullable(customerRepository.getCustomerById(id))
+                .orElseThrow(() -> new CustomerNotFound());
         return appMapper.toCustomerDto(customer);
     }
 
     public String getCustomerCategory(String customerId){
         CustomerId id = CustomerId.fromString(customerId);
-        Customer customer = customerRepository.getCustomerById(id);
+        Customer customer = Optional.ofNullable(customerRepository.getCustomerById(id))
+                .orElseThrow(() -> new CustomerNotFound());
+
         return customer.getCategory().getKey();
     }
 
@@ -52,5 +58,9 @@ public class CustomerService {
 
         customerRepository.save(business);
         return customerId.getValue().toString();
+    }
+
+    public List<CustomerDto> getAllCustomers() {
+        return customerRepository.getAllCustomers().stream().map(appMapper::toCustomerDto).toList();
     }
 }

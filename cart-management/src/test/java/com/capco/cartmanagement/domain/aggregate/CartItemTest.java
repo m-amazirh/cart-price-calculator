@@ -1,14 +1,16 @@
 package com.capco.cartmanagement.domain.aggregate;
+
 import com.capco.cartmanagement.domain.exception.InvalidCartItemQuantity;
+import com.capco.shared.domain.valueobject.MoneyAmount;
 import com.capco.shared.domain.valueobject.Price;
 import com.capco.shared.domain.valueobject.ProductId;
-import com.capco.shared.domain.valueobject.MoneyAmount;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CartItemTest {
 

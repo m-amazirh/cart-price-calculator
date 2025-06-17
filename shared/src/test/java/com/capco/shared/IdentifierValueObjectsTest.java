@@ -4,8 +4,11 @@ import com.capco.shared.domain.valueobject.CustomerId;
 import com.capco.shared.domain.valueobject.Id;
 import com.capco.shared.domain.valueobject.ProductId;
 import org.junit.jupiter.api.Test;
+
 import java.util.UUID;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class IdentifierValueObjectsTest {
 

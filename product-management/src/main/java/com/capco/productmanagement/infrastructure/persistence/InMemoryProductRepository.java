@@ -6,6 +6,7 @@ import com.capco.shared.domain.valueobject.ProductId;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -20,5 +21,10 @@ public class InMemoryProductRepository implements ProductRepository {
     public Product save(Product product) {
         products.put(product.getProductId(), product);
         return product;
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return products.values().stream().toList();
     }
 }

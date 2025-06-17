@@ -4,7 +4,6 @@ import com.capco.customermanagement.domain.valueobject.ConsumerName;
 import com.capco.shared.CustomerCategory;
 import com.capco.shared.domain.valueobject.ConsumerCategory;
 import com.capco.shared.domain.valueobject.CustomerId;
-import com.capco.shared.domain.exception.NotImplementedError;
 import lombok.Value;
 
 @Value

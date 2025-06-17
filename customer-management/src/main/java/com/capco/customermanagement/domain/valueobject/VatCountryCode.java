@@ -67,7 +67,6 @@ public class VatCountryCode {
 
         return Arrays.stream(Locale.getISOCountries())
                 .filter(isoCode -> input.equals(isoCode.toUpperCase()))
-                .findAny()
-                .map(val -> true).orElse(false);
+                .findAny().isPresent();
     }
 }

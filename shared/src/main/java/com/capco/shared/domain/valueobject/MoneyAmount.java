@@ -42,6 +42,6 @@ public class MoneyAmount {
      * @return true if currency is EUR, false otherwise
      */
     protected boolean isCurrencyValid(Currency inputCurrency){
-        return SYSTEM_CURRENCY_CODE.equals(inputCurrency.getCurrencyCode().toUpperCase());
+        return SYSTEM_CURRENCY_CODE.equalsIgnoreCase(inputCurrency.getCurrencyCode());
     }
 }

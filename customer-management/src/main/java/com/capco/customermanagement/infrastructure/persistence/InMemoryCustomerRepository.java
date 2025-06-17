@@ -4,7 +4,6 @@ import com.capco.customermanagement.domain.aggregate.Customer;
 import com.capco.customermanagement.domain.repository.CustomerRepository;
 import com.capco.shared.domain.valueobject.CustomerId;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;

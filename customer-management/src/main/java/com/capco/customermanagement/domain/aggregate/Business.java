@@ -2,12 +2,11 @@ package com.capco.customermanagement.domain.aggregate;
 
 import com.capco.customermanagement.domain.exception.InvalidCompanyName;
 import com.capco.customermanagement.domain.valueobject.AnnualTurnover;
+import com.capco.customermanagement.domain.valueobject.SirenNumber;
+import com.capco.customermanagement.domain.valueobject.VatNumber;
 import com.capco.shared.CustomerCategory;
 import com.capco.shared.domain.valueobject.BigBusinessCategory;
 import com.capco.shared.domain.valueobject.CustomerId;
-import com.capco.customermanagement.domain.valueobject.SirenNumber;
-import com.capco.customermanagement.domain.valueobject.VatNumber;
-import com.capco.shared.domain.exception.NotImplementedError;
 import com.capco.shared.domain.valueobject.SmallBusinessCategory;
 import lombok.NonNull;
 import lombok.Value;
@@ -23,7 +22,7 @@ public class Business extends Customer{
     private final Optional<VatNumber> vatNumber;
     private final AnnualTurnover annualTurnover;
 
-    protected Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull SirenNumber sirenNumber, @NonNull AnnualTurnover annualTurnover, @NonNull Optional<VatNumber> vatNumber) {
+    private Business(@NonNull CustomerId customerId, @NonNull String companyName, @NonNull SirenNumber sirenNumber, @NonNull AnnualTurnover annualTurnover, @NonNull Optional<VatNumber> vatNumber) {
         super(customerId);
 
         if(!isCompanyNameValid(companyName)){
